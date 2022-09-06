@@ -1,0 +1,10 @@
+&input_ht
+  prefix='bi2se3'
+  outdir='./'
+  delete_top_bands=.false.
+/
+K_POINTS crystal_b
+3
+0.33333333 0.33333333 0 50 K
+0 0 0 50 G
+0.5 0 0 0 M

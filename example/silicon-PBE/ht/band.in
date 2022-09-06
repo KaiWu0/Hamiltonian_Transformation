@@ -1,0 +1,11 @@
+&input_ht
+  prefix='si2'
+  outdir='./'
+  delete_top_bands=.false.
+  !power = 4
+  !qr_eps = 1e-4
+/
+K_POINTS crystal_b
+2
+0 0 0 45 G
+0 .5 .5 45 X

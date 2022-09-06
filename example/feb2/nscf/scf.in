@@ -1,0 +1,32 @@
+&CONTROL
+  calculation = 'scf'
+  prefix='feb2',
+  pseudo_dir = '/public/home/jlyang/wuk/bin/pseudo',
+  outdir='.'
+/
+&SYSTEM
+  ibrav=  0, nat=  3, ntyp= 2,
+  ecutwfc = 50,
+  !nosym=.true.
+  nbnd=16
+  occupations = 'smearing',
+  degauss = 0.01
+/
+&ELECTRONS
+  diagonalization='david'
+  mixing_beta = 0.7
+  conv_thr =  1.0d-8
+/
+ATOMIC_SPECIES
+Fe 1 Fe_ONCV_PBE-1.2.upf
+B 1 B_ONCV_PBE-1.2.upf
+CELL_PARAMETERS (angstrom)
+        3.1769299507         0.0000000000         0.0000000000
+       -1.5884649754         2.7513020434         0.0000000000
+        0.0000000000         0.0000000000        16.5275001526
+ATOMIC_POSITIONS crystal
+Fe    0.000000000         0.000000000         0.508673012
+B     0.666666985         0.333332986         0.546769023
+B     0.333332986         0.666666985         0.546769023
+K_POINTS automatic
+11 11 1 0 0 0

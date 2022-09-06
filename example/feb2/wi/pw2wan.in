@@ -1,0 +1,10 @@
+&inputpp
+  outdir     =  './'
+  prefix     =  'feb2'
+  seedname   =  'feb2'
+  ! SCDM keywords
+  scdm_proj         = true
+  scdm_entanglement = 'erfc'
+  scdm_mu           =  2
+  scdm_sigma        =  1
+/

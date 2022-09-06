@@ -1,0 +1,13 @@
+&inputpp
+  outdir     =  './'
+  prefix     =  'bi2se3'
+  seedname   =  'bi2se3'
+  !write_amn  = .true.
+  !write_mmn  = .true.
+  !write_unk  = .true.
+  ! SCDM keywords
+  scdm_proj         = true
+  scdm_entanglement = 'erfc'
+  scdm_mu           =  6
+  scdm_sigma        =  2
+/
