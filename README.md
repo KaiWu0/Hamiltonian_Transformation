@@ -1,12 +1,11 @@
 # Hamiltonian_Transformation
-A first-principles band structure calculation method, which is fast, accurate, parameter-free and functional independent.
+Introduction of Hamiltonian transformation(HT).
+1. It is a first-principles band structure calculation method, which is fast, accurate, parameter-free and functional independent.
+2. The codes in "fortran" directory is HT, which is implemented in Quantum ESPRESSO (QE).
+3. The codes in "python" directory is eigenvalue transformation, which is used for Wannier interpolation.
+4. HT supports OpenMP, does not support MPI now. I recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
 
-Introduction of Hamiltonian transformation.
-1. It is a band structure calculation method implemented in Quantum ESPRESSO (QE).
-2. The code supports OpenMP, does not support MPI now.
-3. I recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
-
-Install:
+Install HT (fortran):
 1. Copy the QE directory to a new place. The HT is written based on QE-6.7, you may need to modify some codes of HT for newest QE version (see Compile Errors section).
 2. Copy “ht.f90” and “ht.sh” to the new directory.
 3. Run “bash ht.f90”, it will output “success”.
@@ -14,19 +13,23 @@ Install:
    example: "./configure MPIF90=mpiifort CC=icc F77=ifort FC=ifort -enable-openmp"
 5. Compile QE by “make clean; make pw pp -j”
 
-Compile Errors:
+HT Compile Errors:
 1. If you see "No rule to make target `@spin_orb@', needed by `ht.o'.  Stop." That is because the new version of QE changed module name.
    Open ht.f90 file, search and replace "USE spin_orb" with "USE noncollin_module".
 
-Run examples:
-1. The examples contain silicon and bi2se3 scripts.
+Run HT examples (fortran/example):
+1. The examples contain silicon-PBE, bi2se3 and feb2 scripts.
 2. You should change some parameters for your own environment.
 3. The nscf directory contains script for non-scf calculation, ht directory contains script for Hamiltonian transformation, wannier contains script for wannier interpolation.
 4. qe.sh or wannier.sh contains commands about how to run the script.
 5. The eigenvalues calculated by HT are saved in band.txt as a matrix.
-6. Run plot_band.py to plot bands. You may need to modify some parameters.
+6. There are python scripts to plot band structures in silicon-PBE directory. Run plot_band.py to plot bands. You may need to modify some parameters.
 
-Input Parameters:
+Run eigenvalue transformation script (python):
+1. Run "python transform.py [prefix of QE] forward" before the Wannier90 optimization.
+2. Run "python transform.py [prefix of QE] backward" after the Wannier90 optimization.
+
+HT Input Parameters:
 1. The necessary parameters are prefix, outdir and K_POINTS block. You can obtain satisfactory results without other parameters.
 2. funtype:
     Type of transform functions.
