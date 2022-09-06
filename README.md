@@ -34,7 +34,7 @@ Input Parameters:
     1 is deprecated.
     2 is complex transform function in paper (default).
 3. power, gap:
-    power is n, gap is a of f_{a,n}(x) of f_n(x) in paper.
+    power is n, gap is a of f_{a,n}(x) or f_n(x) in paper.
     Default: power = 3, gap = -1 (less than 0 to make program calculate automatically)
 4. delete_top_bands:
     Whether delete top bands automatically, default is .false.
