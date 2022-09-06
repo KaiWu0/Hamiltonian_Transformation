@@ -7,7 +7,7 @@ Introduction of Hamiltonian transformation.
 3. I recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
 
 Install:
-1. Copy the QE directory to a new place.
+1. Copy the QE directory to a new place. The HT is written based on QE-6.7, you may need to modify some codes of HT for newest QE version (see Compile Errors section).
 2. Copy “ht.f90” and “ht.sh” to the new directory.
 3. Run “bash ht.f90”, it will output “success”.
 4. run configure. Add OpenMP flags in you configure parameters, i.e. “-enable-openmp”. This step is optional, ht.x will run slower without OpenMP.
@@ -16,7 +16,7 @@ Install:
 
 Compile Errors:
 1. If you see "No rule to make target `@spin_orb@', needed by `ht.o'.  Stop." That is because the new version of QE changed module name.
-   Open ht.f90 file, search and change "USE spin_orb" to "USE noncollin_module".
+   Open ht.f90 file, search and replace "USE spin_orb" with "USE noncollin_module".
 
 Run examples:
 1. The examples contain silicon and bi2se3 scripts.
