@@ -24,6 +24,7 @@ Run HT examples (fortran/example):
 4. qe.sh or wannier.sh contains commands about how to run the script.
 5. The eigenvalues calculated by HT are saved in band.txt as a matrix.
 6. There are python scripts to plot band structures in silicon-PBE directory. Run plot_band.py to plot bands. You may need to modify some parameters.
+7. Silicon-GW only contains ht directory. For Wannier interpolating GW band structures, see the silicon example in BerkelyGW, you can use eigenvalue transformation script in the calculation.
 
 Run eigenvalue transformation script (python):
 1. Run "python transform.py [prefix of QE] forward" before the Wannier90 optimization.

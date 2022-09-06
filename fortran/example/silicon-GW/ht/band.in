@@ -1,0 +1,15 @@
+&input_ht
+  prefix='silicon'
+  outdir='./'
+  delete_top_bands=.false.
+  read_eig=.true.
+  eig_file='gw.eig'
+/
+K_POINTS crystal_b
+6
+.500 .500 .500 50 L
+.000 .000 .000 50 G
+.000 .500 .500 50 X
+.250 .625 .625 00 U
+.375 .750 .375 50 K
+.000 .000 .000 50 G
