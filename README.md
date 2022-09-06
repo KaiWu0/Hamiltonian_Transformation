@@ -15,7 +15,7 @@ Install HT (fortran):
 
 HT Compile Errors:
 1. If you see "No rule to make target `@spin_orb@', needed by `ht.o'.  Stop." That is because the new version of QE changed module name.
-   Open ht.f90 file, search and replace "USE spin_orb" with "USE noncollin_module".
+   Open PP/src/ht.f90, search and replace "USE spin_orb" with "USE noncollin_module".
 
 Run HT examples (fortran/example):
 1. The examples contain silicon-PBE, bi2se3 and feb2 scripts.
