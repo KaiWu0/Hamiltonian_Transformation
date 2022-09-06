@@ -8,7 +8,7 @@ Introduction of Hamiltonian transformation(HT).
 Install HT (fortran):
 1. Copy the QE directory to a new place. The HT is written based on QE-6.7, you may need to modify some codes of HT for newest QE version (see Compile Errors section).
 2. Copy “ht.f90” and “ht.sh” to the new directory.
-3. Run “bash ht.f90”, it will output “success”.
+3. Run “bash ht.sh”, it will output “success”.
 4. run configure. Add OpenMP flags in you configure parameters, i.e. “-enable-openmp”. This step is optional, ht.x will run slower without OpenMP.
    example: "./configure MPIF90=mpiifort CC=icc F77=ifort FC=ifort -enable-openmp"
 5. Compile QE by “make clean; make pw pp -j”
