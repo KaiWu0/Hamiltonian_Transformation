@@ -5,7 +5,6 @@ Introduction of Hamiltonian transformation.
 1. It is a band structure calculation method implemented in Quantum ESPRESSO (QE).
 2. The code supports OpenMP, does not support MPI now.
 3. I recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
-4. The algorithms are in ht_main function. You do not need to read ht_init.
 
 Install:
 1. Copy the QE directory to a new place.
