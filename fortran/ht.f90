@@ -620,12 +620,12 @@ CONTAINS
     !! Similar to exx_grid_init in exx_base.f90, but here k-points must be
     !! exactly same before and after symmetry operations.
     !
-    USE symm_base,      ONLY: nsym, s, no_t_rev
-    USE cell_base,      ONLY: at
-    USE klist,          ONLY: xk, nkstot
-    USE start_k,        ONLY: nk1, nk2, nk3
-    USE spin_orb,       ONLY: domag
-    USE control_flags,  ONLY: noinv
+    USE symm_base,        ONLY: nsym, s, no_t_rev
+    USE cell_base,        ONLY: at
+    USE klist,            ONLY: xk, nkstot
+    USE start_k,          ONLY: nk1, nk2, nk3
+    USE noncollin_module, ONLY: domag
+    USE control_flags,    ONLY: noinv
     !
     IMPLICIT NONE
     !
