@@ -12,7 +12,7 @@ Install HT (fortran):
 4. run configure. Add OpenMP flags in you configure parameters, i.e. `-enable-openmp`. This step is optional, ht.x will run slower without OpenMP. Examples:
    - Intel compiler: `./configure MPIF90=mpiifort CC=icc F77=ifort FC=ifort --with-scalapack=intel -enable-openmp`.
    - Gcc compiler: `./configure MPIF90=mpif90 CC=gcc F77=gfortran FC=gfortran --with-scalapack=intel -enable-openmp`. If you use intel scalapack and gcc compiler, search and replace "lmkl_blacs_intelmpi_lp64" with "lmkl_blacs_openmpi_lp64" in make.inc.
-7. Compile QE by “make clean; make pw pp -j”
+7. Compile QE by `make clean; make pw pp -j`
 
 Run HT examples (fortran/example):
 1. The examples contain silicon-PBE, bi2se3 and feb2 scripts.
