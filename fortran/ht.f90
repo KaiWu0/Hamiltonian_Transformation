@@ -432,7 +432,7 @@ CONTAINS
       print *,"-------------------------------------------------------------------------------"
       print *,"Warning: The pseudopotential is PAW or ultrasoft, so wavefunctions are"
       print *,"nonorthogonal. HT method can be generalized to nonorthogonal basis sets, but it"
-      print *,"requires complicated nonorthogonal QRCP method, which has not been implemented now."
+      print *,"has not been implemented yet."
       print *,"Here we normalize wave functions and pretend they are orthogonal, this may"
       print *,"cause some small errors."
       print *,"-------------------------------------------------------------------------------"
