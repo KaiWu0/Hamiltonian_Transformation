@@ -6,9 +6,9 @@ Introduction of Hamiltonian transformation(HT).
 4. HT supports OpenMP, does not support MPI now. We recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
 
 Install HT (fortran):
-1. Download QE-7.1 from official website (*do not use the QE codes in github, they cannot be compiled*). The HT can support QE-7.1.
-2. Copy “ht.f90” and “ht.sh” to the new directory.
-3. Run `bash ht.sh`, it will output “success”.
+1. Download QE-7.1 or higer version from official website (*do not use the QE codes in github, they cannot be compiled*).
+2. Copy “ht.f90” and “ht.sh” to the main directory of QE.
+3. Run `bash ht.sh`, it will copy files to the correct position and change Makefiles, then output “success”.
 4. run configure. Add OpenMP flags in you configure parameters, i.e. `-enable-openmp`. This step is optional, ht.x will run slower without OpenMP. Examples:
    - Intel compiler: `./configure MPIF90=mpiifort CC=icc F77=ifort FC=ifort --with-scalapack=intel -enable-openmp`.
    - Gcc compiler: `./configure MPIF90=mpif90 CC=gcc F77=gfortran FC=gfortran --with-scalapack=intel -enable-openmp`. If you use intel scalapack and gcc compiler, search and replace "lmkl_blacs_intelmpi_lp64" with "lmkl_blacs_openmpi_lp64" in make.inc.
