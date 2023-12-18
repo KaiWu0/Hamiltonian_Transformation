@@ -4,6 +4,7 @@ Introduction of Hamiltonian transformation(HT).
 2. The codes in "fortran" directory is HT, which is implemented in Quantum ESPRESSO (QE).
 3. The codes in "python" directory is eigenvalue transformation, which is used for Wannier interpolation.
 4. HT supports OpenMP, does not support MPI now. We recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
+5. HT usually consumes more memory than QE, it is better to add "#SBATCH --mem=Max" in slurm script for large systems.
 
 Install HT (fortran):
 1. Download QE-7.1 or higer version from official website (*do not use the QE codes in github, they cannot be compiled*).
@@ -40,7 +41,7 @@ HT Input Parameters:
 4. delete_top_bands:
     Whether delete top bands automatically, default is .false.
 5. qr_eps:
-    Controls the rank of QRCP. Assume the largest singular value to 1, and discard singular values smaller than qr_eps. Default 4e-3. Sometimes it can be reduced to 1e-2.
+    Controls the rank of QRCP. Assume the largest singular value to 1, and discard singular values smaller than qr_eps. Default 1e-3. Sometimes it can be reduced to 1e-2.
 6. rank:
     Assign the rank to QRCP to a particular value. Default -1, less than 0 to make program calculate automatically.
 7. num_threads:
@@ -51,3 +52,5 @@ HT Input Parameters:
     Bool value, default is .false.. Whether read in SCF eigenvalues from the specified file instead of QE default file, which is used to interpolate GW bands.
 10. eig_file:
     The name of file to read in SCF eigenvalues. Only used when read_eig is .true..
+11. max_rank:
+    This parameter is used in randomized QRCP. If max_rank is set to 0 (default) in input script, the code will set max_rank=20*number_of_bands. If max_rank <0, max_rank=abs(max_rank)*number_of_bands. If ht.x throw an error with max_rank is too small, set max_rank=-50 is usually enough.
