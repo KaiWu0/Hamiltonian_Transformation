@@ -511,8 +511,8 @@ CONTAINS
         npw = ngk(ik)
         CALL allocate_bec_type(nkb, nbnd_window, becp)
         CALL init_us_2(npw, igk_k(1, ik), xk(1, ik), vkb)
-        CALL calbec(npw, vkb, evc(:,nbnd-nbnd_window+1:nbnd), becp)
-        CALL s_psi(npwx*npol, npw, nbnd_window, evc(:,nbnd-nbnd_window+1:nbnd), spsi)
+        CALL calbec(npw, vkb, evc(:, nbnd - nbnd_window + 1:nbnd), becp)
+        CALL s_psi(npwx*npol, npw, nbnd_window, evc(:, nbnd - nbnd_window + 1:nbnd), spsi)
         CALL deallocate_bec_type(becp)
 
         phase = EXP(-(0.0_dp, 1.0_dp)*2*pi*(xk_cryst(1, iq)*xr_cryst(1, :) + &
@@ -580,17 +580,17 @@ CONTAINS
       Rpts(2, ik + 1) = j
       Rpts(3, ik + 1) = k
     END DO
-    	!
-			!-------------------------------------------------------
-    	! calculate decay properties of H_R, only useful for test
-    	open (unit=77, file='H_R.txt', status='replace', action='write', form='formatted')
-    		DO iq = 1, nk123
-    		  write(77, '(F24.16, F24.16, I6, I6, I6)'), 0.529177249*alat*norm2(matmul(at,Rpts(:,iq))), norm2(abs(H(iq,:,:))), Rpts(:,iq)
-    		END DO
-    	close (77)
-    	!
-			!-------------------------------------------------------
-			!
+    !
+    !-------------------------------------------------------
+    ! calculate decay properties of H_R, only useful for test
+    !open (unit=77, file='H_R.txt', status='replace', action='write', form='formatted')
+    !DO iq = 1, nk123
+    !  write (77, '(F24.16, F24.16, I6, I6, I6)'), 0.529177249*alat*norm2(matmul(at, Rpts(:, iq))), norm2(abs(H(iq, :, :))), Rpts(:, iq)
+    !END DO
+    !close (77)
+    !
+    !-------------------------------------------------------
+    !
     DO iq = 1, nqstot
       FT_mat(iq, :) = EXP((0.0_dp, 2.0_dp)*pi* &
                           (xq_cryst(1, iq)*Rpts(1, :) + xq_cryst(2, iq)*Rpts(2, :) + xq_cryst(3, iq)*Rpts(3, :)))
