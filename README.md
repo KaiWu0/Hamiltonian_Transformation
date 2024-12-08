@@ -4,10 +4,9 @@ Introduction of Hamiltonian transformation(HT).
 2. The codes in "fortran" directory is HT, which is implemented in Quantum ESPRESSO (QE).
 3. The codes in "python" directory is eigenvalue transformation, which is used for Wannier interpolation.
 4. HT supports OpenMP, does not support MPI now. We recommend to compile two versions of QE, one is MPI version and runs pw.x, another is OpenMP version and runs ht.x, since pw.x is quite slow when OpenMP is open.
-5. HT usually consumes more memory than QE, it is better to add "#SBATCH --mem=Max" in slurm script for large systems.
 
 Install HT (fortran):
-1. Download QE-7.1 or higer version from official website (*do not use the QE codes in github, they cannot be compiled*).
+1. Download QE-7.1 or higer version from official website (*do not use the QE codes in github*).
 2. Copy “ht.f90” and “ht.sh” to the main directory of QE.
 3. Run `bash ht.sh`, it will copy files to the correct position and change Makefiles, then output “success”.
 4. run configure. Add OpenMP flags in you configure parameters, i.e. `-enable-openmp`. This step is optional, ht.x will run slower without OpenMP. Examples:
